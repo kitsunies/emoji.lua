@@ -13,7 +13,7 @@ local emoji = require('emoji')
 
 ### emoji.get
 
-Returns the base class for errors.
+Returns the emoji code for coffee. (may or may not display terminals)
 
 ```lua
 lurror.error
@@ -27,5 +27,5 @@ lurror.error
 This library is free software; You may redistribute and/or modify it under the terms of the MIT license. See [LICENSE](LICENSE) for details.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyODU1MzMyMCwtMTc2MzY1MjgyNV19
+eyJoaXN0b3J5IjpbLTY5MTIzNjc1MywtMTc2MzY1MjgyNV19
 -->
