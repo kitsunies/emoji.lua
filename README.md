@@ -13,18 +13,84 @@ local emoji = require('emoji')
 
 ### emoji.get
 
-Returns the emoji code for the given emoji. (may or may not display terminals)
-
 ```lua
-emoji.get(emoji)
+emoji.get("tea") -> "🍵"
 ```
 
+Returns the emoji of the query
+
+### emoji.which
+
+```lua
+emoji.which("🍵") -> "tea"
+```
+
+Returns the name of an emoji
+
+### emoji.emojify
+
+```lua
+emoji.emojify("I :heart: :tea:!") -> "I ❤️ 🍵!"
+```
+
+Replaces all :emoji: with the actual emoji
+
+### emoji.unemojify
+
+```lua
+emoji.unemojify("I ❤️ 🍵!") -> "I :heart: :tea:!"
+```
+
+Replaces all the emojis with the emoji's tag
+
+### emoji.random
+
+```lua
+emoji.random() -> { emoji = "🌼", key = "blossom" }
+```
+
+Returns a random emoji + key table
+
+### emoji.search
+
+```lua
+emoji.search("coff") -> {{ emoji = "☕️", key = "coffee" }, { emoji = "⚰", key = "coffin" }}
+```
+
+Returns a table of tables with matching emojis
+
+### emoji.find
+
+```lua
+emoji.find("🍵" | "tea") -> { emoji = "🍵", key = "tea" }
+```
+
+Returns a emoji + key table of the emoji
+
+### emoji.has
+
+```lua
+emoji.find("🍵" | "tea") -> true
+```
+
+Validates whether the given emoji exists
+
+### emoji.strip
+
+```lua
+emoji.strip("I see you... 👀") -> "I see you..."
+```
+
+Strips the string from emojis
+
+### emoji.replace
+
+```lua
+emoji.replace("I see you... 👀", function(emoji) return emoji.key end) -> "I see you... eyes"
+```
+
+Replaces emojis by callback method
 
 # License
 
 This library is free software; You may redistribute and/or modify it under the terms of the MIT license. See [LICENSE](LICENSE) for details.
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDg3ODgwMzAsLTE3NjM2NTI4MjVdfQ
-==
--->
