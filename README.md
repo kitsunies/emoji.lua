@@ -1,5 +1,14 @@
 <h1 align=center>emoji.lua 💬</h1>
-<h3 align=center>A basic emoji support module for Lua</h3>
+<h3 align=center>A basic emoji support module for Lua 🌙</h3>
+
+# Example
+
+```lua
+local emoji = require("emoji")
+
+print(emoji.emojify("I :heart: :tea:!"))
+--> "I ❤️ 🍵!"
+```
 
 # Installation
 
@@ -10,6 +19,8 @@ local emoji = require('emoji')
 ```
 
 # Interface
+
+## Methods
 
 ### emoji.get
 
@@ -90,6 +101,38 @@ emoji.replace("I see you... 👀", function(emoji) return emoji.key end) -> "I s
 ```
 
 Replaces emojis by callback method
+
+## Options
+
+### missing
+
+`emoji.emojify(str, missing)`
+
+As second argument,  `emojify`  takes an handler to parse unknown emojis. Provide a function to add your own handler:
+
+```lua
+local missing = function(tag)
+	return tag:upper()
+end)
+
+local emojified = emoji.emojify('I :unknown_emoji: :star:', onMissing);
+--> emojified: "I UNKNOWN_EMOJI ⭐️"
+```
+
+### format
+
+`emoji.emojify(str, missing, format)`
+
+As third argument,  `emojify`  takes an handler to wrap parsed emojis. Provide a function to place emojis in custom elements, and to apply your custom styling:
+
+```lua
+local format = function(emoji)
+	return '<img alt="' .. emoji.emoji .. '" src="' .. emoji.key .. '.png />'
+end)
+
+local emojified = emoji.emojify("I :heart: :tea:", nil, format)
+--> emojified: "I <img alt="❤️" src="heart.png" /> <img alt="🍵" src="tea.png" />"
+```
 
 # License
 
