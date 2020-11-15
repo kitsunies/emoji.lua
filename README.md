@@ -100,7 +100,7 @@ Strips the string from emojis
 emoji.replace("I see you... 👀", function(emoji) return emoji.key end) -> "I see you... eyes"
 ```
 
-Replaces emojis by callback method
+Replaces emojis by a callback method
 
 ## Options
 
@@ -112,7 +112,7 @@ As second argument,  `emojify`  takes an handler to parse unknown emojis. Provid
 
 ```lua
 local missing = function(tag)
-	return tag:upper()
+    return tag:upper()
 end)
 
 local emojified = emoji.emojify('I :unknown_emoji: :star:', onMissing);
@@ -127,7 +127,7 @@ As third argument,  `emojify`  takes an handler to wrap parsed emojis. Provide a
 
 ```lua
 local format = function(emoji)
-	return '<img alt="' .. emoji.emoji .. '" src="' .. emoji.key .. '.png />'
+    return '<img alt="' .. emoji.emoji .. '" src="' .. emoji.key .. '.png />'
 end)
 
 local emojified = emoji.emojify("I :heart: :tea:", nil, format)
