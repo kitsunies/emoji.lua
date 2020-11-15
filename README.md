@@ -25,7 +25,7 @@ local emoji = require('emoji')
 ### emoji.get
 
 ```lua
-emoji.get("tea") -> "🍵"
+emoji.get("wavinghand", emoji.light) -> "👋🏻"
 ```
 
 Returns the emoji of the query
