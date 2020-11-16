@@ -18,8 +18,7 @@ local function strip(query)
 end
 
 local function fill(query)
-    assert(type(query ~= 'string'), 'unable to fill \''
-        ..tostring(query)..'\' (a '..type(query).. 'value')
+    assert(type(query ~= 'string'), 'unable to fill \''..tostring(query)..'\' (a '..type(query).. 'value')
 
     return ':'..query..':'
 end
@@ -37,9 +36,7 @@ _M.medium = "m"
 _M.medium_light = "ml"
 _M.light = "l"
 
-function _M.get(...)
-    return tone(...)
-end
+_M.get = tone
 
 function _M.which(query)
     return fill(sijome[query])
@@ -49,7 +46,8 @@ function _M.emojify(query, missing, format)
     missing = missing or function() return '' end
     format = format or function(...) return ... end
     return ({query:gsub('%b::', function(emoji)
-        return format(emojis[strip(emoji)])
+        local formatted = format(emojis[strip(emoji)])
+        return formatted and formatted or missing(formatted)
     end)})[1]
 end
 
@@ -102,15 +100,14 @@ function _M.has(query)
 end
 
 function _M.strip(query)
-    for k, v in pairs(emojis) do
-        query = query:gsub(v, '')
+    for i = 1, #emoji_list do
+        query = query:gsub(emoji_list[i], '')
     end
     return query
 end
 
 function _M.replace(query, fn)
-    assert(type(fn{key='',emoji=''}) == 'string', 
-        'callback function doesn\'t return a string')
+    assert(type(fn{key='',emoji=''}) == 'string', 'callback function doesn\'t return a string')
     for k, v in pairs(emojis) do
         query = query:gsub(v, fn({
             emoji = v,
@@ -120,8 +117,4 @@ function _M.replace(query, fn)
     return query
 end
 
-return setmetatable(_M, {
-    __call = function(self, ...)
-        return self.emojify(...) 
-    end
-})
+return setmetatable(_M, {__call = function(self, ...) return self.emojify(...) end})
