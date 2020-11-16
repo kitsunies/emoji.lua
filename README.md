@@ -22,7 +22,7 @@ luarocks install emoji
 
 ## Manual
 
-Copy the [emoji](emoji) folder somewhere where your Lua interpreter will be able to find it and require it accordingly:
+Copy the [emoji.lua](emoji.lua) file somewhere where your Lua interpreter will be able to find it and require it accordingly:
 
 ```lua
 local emoji = require('emoji')
