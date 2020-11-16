@@ -14,7 +14,7 @@ dependencies = {
 build = {
     type = "builtin",
     modules = {
-        emoji = "emoji/emoji.lua"
+        emoji = "emoji/emoji.lua",
         ['emoji.emoji-list'] = "emoji/emoji-list.lua"
     }
 }
