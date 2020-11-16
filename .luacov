@@ -1,5 +1,5 @@
 modules = {
-   ["emoji"] = "emoji/emoji.lua",
+   ["emoji"] = "emoji/init.lua",
    ["emoji.emoji-list"] = "emoji/emoji-list.lua"
 }
 runreport = true
