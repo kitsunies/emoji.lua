@@ -22,7 +22,7 @@ install:
   - luarocks install luacov-coveralls
 
 script:
-  - luacheck --std max+busted *.lua emoji
+  - luacheck --std max+busted emoji.lua
   - busted --verbose --coverage
 
 after_success:
