@@ -10,6 +10,24 @@ print(emoji.emojify("I :heart: :tea:!"))
 --> "I ❤️ 🍵!"
 ```
 
+# Installation
+
+## Luarocks
+
+If you are using [luarocks](https://luarocks.org), just run:
+
+```
+luarocks install emoji
+```
+
+## Manual
+
+Copy the [emoji](emoji) folder somewhere where your Lua interpreter will be able to find it and require it accordingly:
+
+```lua
+local emoji = require('emoji')
+```
+
 # Interface
 
 ## Methods
@@ -124,25 +142,6 @@ end)
 
 local emojified = emoji.emojify("I :heart: :tea:", nil, format)
 --> emojified: "I <img alt="❤️" src="heart.png" /> <img alt="🍵" src="tea.png" />"
-```
-
-
-# Installation
-
-## Luarocks
-
-If you are using [luarocks](https://luarocks.org), just run:
-
-```
-luarocks install emoji
-```
-
-## Manual
-
-Copy the [emoji](emoji) folder somewhere where your Lua interpreter will be able to find it and require it accordingly:
-
-```lua
-local emoji = require('emoji')
 ```
 
 # License
