@@ -144,6 +144,14 @@ local emojified = emoji.emojify("I :heart: :tea:", nil, format)
 --> emojified: "I <img alt="❤️" src="heart.png" /> <img alt="🍵" src="tea.png" />"
 ```
 
+# Testing
+Install busted & luacheck `luarocks install busted && luarocks install luacheck` and run:
+
+```
+$ busted
+$ luacheck emoji.lua
+```
+
 # License
 
 This library is free software; You may redistribute and/or modify it under the terms of the MIT license. See [LICENSE](LICENSE) for details.
