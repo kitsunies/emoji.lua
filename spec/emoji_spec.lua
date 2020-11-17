@@ -36,7 +36,7 @@ describe("emoji", function()
     end)
     
     it("find", function()
-        assert.is_emoji_block(emoji.find("🍵")
+        assert.is_emoji_block(emoji.find("🍵"))
     end)
     
     it("has", function()
@@ -48,7 +48,7 @@ describe("emoji", function()
     end)
     
     it("replace", function()
-        assert.are.same("I see you... eyes", emoji.replace("I see you... 👀", function(emoji) return emoji.key end)
+        assert.are.same("I see you... eyes", emoji.replace("I see you... 👀", function(emoji) return emoji.key end))
     end)
     
 end)
