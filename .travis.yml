@@ -1,0 +1,32 @@
+language: cpp
+dist: bionic
+
+jobs:
+  include:
+    - name: Lua 5.1
+      env:
+        LUA_APT=lua5.1
+        LUA_DEV=
+    - name: Lua 5.2
+      env:
+        LUA_APT=lua5.2
+        LUA_DEV=liblua5.2-dev
+    - name: Lua 5.3
+      env:
+        LUA_APT=lua5.3
+        LUA_DEV=liblua5.3-dev
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y install $LUA_APT $LUA_DEV luarocks
+
+install:
+  - sudo luarocks install busted
+  - sudo luarocks install luacov
+
+script:
+  - busted -c spec/*
+  - luacov
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
