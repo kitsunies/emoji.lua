@@ -34,10 +34,6 @@ describe("emoji", function()
         assert.True(block(emoji.find("🍪")))
     end)
     
-    it("has", function()
-        assert.True(emoji.has("🍪"))
-    end)
-    
     it("strip", function()
         assert.are.same("I see you... ", emoji.strip("I see you... 👀"))
     end)
