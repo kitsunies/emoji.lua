@@ -32,7 +32,7 @@ _M.medium_light = "ml"
 _M.light = "l"
 
 function _M.get(query)
-    return emoji[query]
+    return emojis[query]
 end
 
 function _M.which(query)
@@ -49,7 +49,7 @@ function _M.emojify(query, missing, format)
 end
 
 function _M.random()
-    local choice = math.random(#emojis)
+    local choice = math.random(#emoji_list)
     return {
         emoji = emoji_list[choice],
         key = fill(name_list[choice])
