@@ -23,12 +23,7 @@ local function fill(query)
     return ':'..query..':'
 end
 
-local function tone(query, skintone)
-    skintone = skintone or ''
-    return emojis[strip(query..skintone)] or emojis[strip(query)]
-end
-
-local _M = {_emojis = emojis}
+local _M = {}
 
 _M.dark = "d"
 _M.dedium_dark = "md"
@@ -36,10 +31,12 @@ _M.medium = "m"
 _M.medium_light = "ml"
 _M.light = "l"
 
-_M.get = tone
+function _M.get(query)
+    return emoji[query]
+end
 
 function _M.which(query)
-    return fill(sijome[query])
+    return sijome[query]
 end
 
 function _M.emojify(query, missing, format)
