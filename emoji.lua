@@ -9,8 +9,7 @@ for k, v in pairs(emojis) do
 end
 
 local function strip(query)
-    assert(type(query ~= 'string'), 'unable to strip \''
-        ..tostring(query)..'\' (a '..type(query).. 'value')
+    assert(type(query ~= 'string'), 'unable to strip \''..tostring(query)..'\' (a '..type(query).. 'value')
 
     return query:match('^:.*:$') and query
         :gsub('^:(.*):$', '%1')
@@ -24,12 +23,6 @@ local function fill(query)
 end
 
 local _M = {}
-
-_M.dark = "d"
-_M.dedium_dark = "md"
-_M.medium = "m"
-_M.medium_light = "ml"
-_M.light = "l"
 
 function _M.get(query)
     return emojis[query]
@@ -83,14 +76,6 @@ function _M.find(query)
                 emoji = v,
                 key = fill(k)
             }
-        end
-    end
-end
-
-function _M.has(query)
-    for k, v in pairs(emojis) do
-        if k == query or v == query then
-            return { emoji = v, key = k }
         end
     end
 end
