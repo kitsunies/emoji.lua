@@ -35,7 +35,7 @@ local emoji = require('emoji')
 ### emoji.get
 
 ```lua
-emoji.get("wavinghand", emoji.light) -> "👋🏻"
+emoji.get("tea") -> "🍵"
 ```
 
 Returns the emoji of the query
@@ -87,14 +87,6 @@ emoji.find("🍵" | "tea") -> { emoji = "🍵", key = "tea" }
 ```
 
 Returns a emoji + key table of the emoji
-
-### emoji.has
-
-```lua
-emoji.find("🍵" | "tea") -> true
-```
-
-Validates whether the given emoji exists
 
 ### emoji.strip
 
