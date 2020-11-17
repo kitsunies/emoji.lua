@@ -1,5 +1,5 @@
 local emoji = require("emoji")
-local s = require("say")
+local say = require("say")
 
 local function is_emoji_block(test)
     return (test.emoji and test.key) and true or false
