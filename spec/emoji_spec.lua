@@ -15,11 +15,11 @@ describe("emoji", function()
     end)
     
     it("emojify", function()
-        assert.are.same("I 😍 🍪!", emoji.emojify("I :hearteyes: :cookie:!"))
+        assert.are.same("I see you... 👀", emoji.emojify("I see you... :eyes:"))
     end)
     
     it("unemojify", function()
-        assert.are.same("I :hearteyes: :cookie:!", emoji.unemojify("I 😍 🍪!"))
+        assert.are.same("I see you... :eyes:", emoji.unemojify("I see you... 👀"))
     end)
     
     it("random", function()
