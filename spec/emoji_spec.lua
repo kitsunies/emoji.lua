@@ -1,5 +1,4 @@
 local emoji = require("emoji")
-local say = require("say")
 
 local function block(test)
     return (test.emoji and test.key) and true or false
@@ -8,19 +7,19 @@ end
 describe("emoji", function()
 
     it("get", function()
-        assert.are.same("🍪", emoji.get("🍪"))
+        assert.are.same("🍪", emoji.get("cookie"))
     end)
     
     it("which", function()
-        assert.are.same("🍪", emoji.which("🍪")) 
+        assert.are.same("cookie", emoji.which("🍪")) 
     end)
     
     it("emojify", function()
-        assert.are.same("I ❤️ 🍪!", emoji.emojify("I :redheart: :cookie:!"))
+        assert.are.same("I ❤ 🍪!", emoji.emojify("I :redheart: :cookie:!"))
     end)
     
     it("unemojify", function()
-        assert.are.same("I :redheart: :cookie:!", emoji.unemojify("I ❤️ 🍪!"))
+        assert.are.same("I :redheart: :cookie:!", emoji.unemojify("I ❤ 🍪!"))
     end)
     
     it("random", function()
