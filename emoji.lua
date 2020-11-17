@@ -90,10 +90,9 @@ end
 function _M.has(query)
     for k, v in pairs(emojis) do
         if k == query or v == query then
-            return true
+            return { emoji = v, key = k }
         end
     end
-    return false
 end
 
 function _M.strip(query)
