@@ -1,46 +1,42 @@
 local emoji = require("emoji")
 local say = require("say")
 
-local function is_emoji_block(test)
+local function block(test)
     return (test.emoji and test.key) and true or false
 end
-
-say:set("assertion.is_emoji_block.positive", "Expected %s \nto have property: %s")
-say:set("assertion.is_emoji_block.negative", "Expected %s \nto not have property: %s")
-assert:register("assertion", "is_emoji_block", is_emoji_block, "assertion.is_emoji_block.positive", "assertion.is_emoji_block.negative")
 
 describe("emoji", function()
 
     it("get", function()
-        assert.are.same("☕", emoji.get("coffee"))
+        assert.are.same("🍪", emoji.get("🍪"))
     end)
     
     it("which", function()
-        assert.are.same("coffee", emoji.which("☕")) 
+        assert.are.same("🍪", emoji.which("🍪")) 
     end)
     
     it("emojify", function()
-        assert.are.same("I 😍 ☕!", emoji.emojify("I :hearteyes: :coffee:!"))
+        assert.are.same("I ❤️ 🍪!", emoji.emojify("I :redheart: :cookie:!"))
     end)
     
     it("unemojify", function()
-        assert.are.same("I :heart: :tea:!", emoji.unemojify("I ❤️ ☕!"))
+        assert.are.same("I :redheart: :cookie:!", emoji.unemojify("I ❤️ 🍪!"))
     end)
     
     it("random", function()
-        assert.is_emoji_block(emoji.random())
+        assert.True(block(emoji.random()))
     end)
     
     it("search", function()
-        assert.is_emoji_block(emoji.search("coff")[1])
+        assert.True(block(emoji.search("cof")[1]))
     end)
     
     it("find", function()
-        assert.is_emoji_block(emoji.find("🍵"))
+        assert.True(block(emoji.find("🍪")))
     end)
     
     it("has", function()
-        assert.True(emoji.has("🍵"))
+        assert.True(emoji.has("🍪"))
     end)
     
     it("strip", function()
