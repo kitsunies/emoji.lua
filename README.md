@@ -5,7 +5,7 @@
     <a href="https://codecov.io/gh/kitsunies/emoji.lua/branch/v2/"> <img src="https://codecov.io/gh/kitsunies/emoji.lua/branch/v2/graph/badge.svg"> </a>
     <a href="https://github.com/kitsunies/emoji.lua/releases/latest"> <img src="https://img.shields.io/github/v/release/kitsunies/emoji.lua"> </a>
 </p>
-![GitHub](https://img.shields.io/github/license/kitsunies/emoji.lua)
+
 <h3 align=center>A basic emoji support module for Lua 🌙</h3>
 
 # Example
