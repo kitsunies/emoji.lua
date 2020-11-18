@@ -6,11 +6,6 @@
     <a href="https://github.com/kitsunies/emoji.lua/edit/v2/LICENSE"> <img src="https://img.shields.io/github/license/Naereen/StrapDown.js.svg"> </a>
 </p>
 
-
-[![Build Status](https://travis-ci.org/kitsunies/emoji.lua.svg?branch=v2)](https://travis-ci.org/kitsunies/emoji.lua)
-[![codecov](https://codecov.io/gh/kitsunies/emoji.lua/branch/v2/graph/badge.svg)](https://codecov.io/gh/kitsunies/emoji.lua)
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSES)
-
 <h3 align=center>A basic emoji support module for Lua 🌙</h3>
 
 # Example
