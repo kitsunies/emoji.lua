@@ -34,7 +34,7 @@ local function emoji_table(emoji, key)
 end
 
 local emoji = {
-    tone = {
+    tones = {
         dark = "d",
         dedium_dark = "md",
         medium = "m",
