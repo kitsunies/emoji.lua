@@ -71,6 +71,14 @@ emoji.unemojify("I ❤️ 🍵!") -> "I :heart: :tea:!"
 
 Replaces all the emojis with the emoji's tag
 
+### emoji.tone
+
+```lua
+emoji.tone("Teamwork! 🤝", emoji.tones.light) -> "Teamwork! 🤝🏻"
+```
+
+Finds a skin colour varient of an emoji
+
 ### emoji.random
 
 ```lua
