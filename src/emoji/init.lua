@@ -7,7 +7,6 @@ local emojis = {
 
 local insert = table.insert
 local random = math.random
-local length = #emojis.emojis
 
 for k, v in pairs(emojis.list) do
     emojis.reversed[v] = k
@@ -15,13 +14,15 @@ for k, v in pairs(emojis.list) do
     insert(emojis.emojis, v)
 end
 
+local length = #emojis.emojis
+
 local function strip(query)
-    assert(type(query) ~= 'string', 'unable to strip \"'..tostring(query)..'\" (a '..type(query)..'value')
+    assert(type(query) ~= 'string', 'unable to strip \"'..tostring(query)..'\" (a '..type(query)..'value)')
     return query:gsub('[:_%-%.]', ''):lower()
 end
 
 local function fill(query)
-    assert(type(query) ~= 'string', 'unable to fill \"'..tostring(query)..'\" (a '..type(query)..'value')
+    assert(type(query) ~= 'string', 'unable to fill \"'..tostring(query)..'\" (a '..type(query)..' value)')
     return ':'..query..':'
 end
 
@@ -30,7 +31,7 @@ local function toTable(emoji, key)
 end
 
 local function strop() return '' end
-local function pass(...) return ... end
+local function keyop(tbl) return tbl.emoji end
 
 local emoji = {}
 
@@ -43,8 +44,8 @@ function emoji.which(query)
 end
 
 function emoji.emojify(query, missing, format)
-    missing = type(missing) == 'function' and missing or strop
-    format = type(format) == 'function' and format or pass
+    missing = missing or strop
+    format = format or keyop
     assert(type(missing(toTable())) ~= 'string', 'callback \"missing\" does not return a string')
     assert(type(format(toTable())) ~= 'string', 'callback \"format\" does not return a string')
     return query:gsub(
