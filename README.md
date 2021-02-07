@@ -1,8 +1,8 @@
 <h1 align=center>emoji.lua 💬</h1>
 
 <p align="center">
-    <a href="https://travis-ci.org/kitsunies/emoji.lua"> <img src="https://travis-ci.org/kitsunies/emoji.lua.svg?branch=v2"> </a>
-    <a href="https://codecov.io/gh/kitsunies/emoji.lua/branch/v2/"> <img src="https://codecov.io/gh/kitsunies/emoji.lua/branch/v2/graph/badge.svg"> </a>
+    <a href="https://travis-ci.org/kitsunies/emoji.lua"> <img src="https://travis-ci.org/kitsunies/emoji.lua.svg?branch=v3"> </a>
+    <a href="https://codecov.io/gh/kitsunies/emoji.lua/branch/v3/"> <img src="https://codecov.io/gh/kitsunies/emoji.lua/branch/v3/graph/badge.svg"> </a>
     <a href="https://github.com/kitsunies/emoji.lua/releases/latest"> <img src="https://img.shields.io/github/v/release/kitsunies/emoji.lua"> </a>
 </p>
 
