@@ -31,7 +31,6 @@ local function toTable(emoji, key)
     return {emoji = emoji or '', key = key or ''}
 end
 
-local function pass(...) return ... end
 local function strop() return '' end
 local function keyop(t) return t.emoji end
 
@@ -47,13 +46,13 @@ end
 
 function emoji.emojify(query, missing, format)
     missing = missing or strop
-    format = format or pass
+    format = format or keyop
     assert(type(missing(toTable())) == 'string', 'callback "missing" does not return a string')
     assert(type(format(toTable())) == 'string', 'callback "format" does not return a string')
     return query:gsub(
         '%b::',
-        function(name)
-            local formatted = format(emojis.list[strip(name)])
+        function(key)
+            local formatted = toTable(format(emojis.list[strip(key)]), key)
             return formatted or missing(formatted)
         end
     )
