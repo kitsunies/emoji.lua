@@ -1,5 +1,5 @@
 local emojis = {
-    list = require './emoji-list',
+    list = require 'emoji.emoji-list',
     reversed = {},
     names = {},
     emojis = {},
