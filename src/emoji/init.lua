@@ -7,6 +7,7 @@ local emojis = {
 
 local insert = table.insert
 local random = math.random
+local f = string.format
 
 for k, v in pairs(emojis.list) do
     emojis.reversed[v] = k
@@ -17,12 +18,12 @@ end
 local length = #emojis.emojis
 
 local function strip(query)
-    assert(type(query) ~= 'string', 'unable to strip \"'..tostring(query)..'\" (a '..type(query)..'value)')
+    assert(type(query) == 'string', f('unable to strip "%s" (a "%s" value)', tostring(query), type(query)))
     return query:gsub('[:_%-%.]', ''):lower()
 end
 
 local function fill(query)
-    assert(type(query) ~= 'string', 'unable to fill \"'..tostring(query)..'\" (a '..type(query)..' value)')
+    assert(type(query) == 'string', f('unable to strip "%s" (a "%s" value)', tostring(query), type(query)))
     return ':'..query..':'
 end
 
@@ -46,8 +47,8 @@ end
 function emoji.emojify(query, missing, format)
     missing = missing or strop
     format = format or keyop
-    assert(type(missing(toTable())) ~= 'string', 'callback \"missing\" does not return a string')
-    assert(type(format(toTable())) ~= 'string', 'callback \"format\" does not return a string')
+    assert(type(missing(toTable())) == 'string', 'callback "missing" does not return a string')
+    assert(type(format(toTable())) == 'string', 'callback "format" does not return a string')
     return query:gsub(
         '%b::',
         function(name)
@@ -59,7 +60,7 @@ end
 
 function emoji.random()
     local choice = random(length)
-    return toTable(emoji.emojis[choice], emoji.name[choice])
+    return toTable(emojis.emojis[choice], emojis.name[choice])
 end
 
 function emoji.search(query)
@@ -92,7 +93,8 @@ function emoji.strip(query)
 end
 
 function emoji.replace(query, fn)
-    assert(type(fn(toTable())) ~= 'string', 'callback function does not return a string')
+    fn = fn or keyop
+    assert(type(fn(toTable)) == 'string', 'callback function does not return a string')
     for k, v in pairs(emojis.list) do
         query = query:gsub(v, fn(toTable(v, k)))
     end

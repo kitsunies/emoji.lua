@@ -1,4 +1,4 @@
-local emoji = require("emoji")
+local emoji = require "emoji"
 
 local function block(test)
     return (test.emoji and test.key) and true or false
