@@ -52,8 +52,7 @@ function emoji.emojify(query, missing, format)
     return query:gsub(
         '%b::',
         function(key)
-            local formatted = toTable(format(emojis.list[strip(key)]), key)
-            return formatted or missing(formatted)
+            return format(toTable(emojis.list[strip(key)], key)) or missing(key)
         end
     )
 end
