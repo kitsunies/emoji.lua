@@ -31,8 +31,9 @@ local function toTable(emoji, key)
     return {emoji = emoji or '', key = key or ''}
 end
 
+local function pass(...) return ... end
 local function strop() return '' end
-local function keyop(tbl) return tbl.emoji end
+local function keyop(t) return t.emoji end
 
 local emoji = {}
 
@@ -46,7 +47,7 @@ end
 
 function emoji.emojify(query, missing, format)
     missing = missing or strop
-    format = format or keyop
+    format = format or pass
     assert(type(missing(toTable())) == 'string', 'callback "missing" does not return a string')
     assert(type(format(toTable())) == 'string', 'callback "format" does not return a string')
     return query:gsub(
@@ -60,7 +61,7 @@ end
 
 function emoji.random()
     local choice = random(length)
-    return toTable(emojis.emojis[choice], emojis.name[choice])
+    return toTable(emojis.emojis[choice], emojis.names[choice])
 end
 
 function emoji.search(query)
@@ -94,7 +95,7 @@ end
 
 function emoji.replace(query, fn)
     fn = fn or keyop
-    assert(type(fn(toTable)) == 'string', 'callback function does not return a string')
+    assert(type(fn(toTable())) == 'string', 'callback function does not return a string')
     for k, v in pairs(emojis.list) do
         query = query:gsub(v, fn(toTable(v, k)))
     end
